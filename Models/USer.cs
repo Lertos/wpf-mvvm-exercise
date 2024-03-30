@@ -9,6 +9,7 @@
 
     internal class User
     {
+        public int id { get; }
         public string loginName { get; }
         public string password { get; private set; }
         public string displayName { get; private set; }
@@ -16,8 +17,9 @@
         public int upvotes { get; private set; } = 0;
         public int downvotes { get; private set; } = 0;
 
-        public User (string loginName, string password, string displayName, Role role)
+        public User (int id, string loginName, string password, string displayName, Role role)
         {
+            this.id = id;
             this.loginName = loginName;
             this.password = password;
             this.displayName = displayName;
