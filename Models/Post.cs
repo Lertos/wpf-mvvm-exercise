@@ -2,20 +2,41 @@
 {
     internal class Post
     {
-        public string content { get; private set; }
+        private const int MaxContentLength = 500;
+
+        private string content;
         public User ownedBy { get; }
-        public DateTime createDate { get; }
+        private DateTime createDate;
+        private DateTime modifiedDate;
         public Dictionary<int, bool> upvotes { get; }
         public Dictionary<int, bool> downvotes { get; }
+
         public Post(string content, User ownedBy)
         {
             this.content = content;
             this.ownedBy = ownedBy;
+            this.createDate = DateTime.Now;
+            this.modifiedDate = DateTime.Now;
             this.upvotes = new Dictionary<int, bool>();
             this.downvotes = new Dictionary<int, bool>();
         }
 
-        public void EditContent(string content) => this.content = content;
+        public string Content
+        {
+            get { return content; }
+            set { content = value.Substring(0, MaxContentLength); }
+        }
+
+        public string CreateDate
+        {
+            get { return createDate.ToString("dddd, dd MMMM yyyy"); }
+        }
+
+        public string ModifiedDate
+        {
+            get { return modifiedDate.ToString("dddd, dd MMMM yyyy"); }
+            set { modifiedDate = DateTime.Now; }
+        }
 
         public void AddUpvote(int userID) => this.upvotes[userID] = true;
 
