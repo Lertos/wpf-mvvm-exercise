@@ -57,5 +57,7 @@
         public void AddDownvote() => this.downvotes++;
 
         public void RemoveDownvote() => this.downvotes--;
+
+        //TODO: Implement HashCode and Equals methods
     }
 }

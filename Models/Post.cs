@@ -65,5 +65,7 @@
 
             return 0;
         }
+
+        //TODO: Implement HashCode and Equals methods
     }
 }
