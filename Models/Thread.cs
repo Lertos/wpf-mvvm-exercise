@@ -10,9 +10,9 @@
         private DateTime createDate;
         private DateTime modifiedDate;
         public User ownedBy { get; }
-        public bool locked { get; private set; } = false;
-        public bool only_admin_visible { get; private set; } = false;
-        public bool only_mod_visible { get; private set; } = false;
+        public bool locked { get; set; } = false;
+        public bool only_admin_visible { get; set; } = false;
+        public bool only_mod_visible { get; set; } = false;
         public List<Post> posts { get; } = new List<Post>();
 
         public Thread(string title, string description, User ownedBy) 
@@ -46,5 +46,8 @@
             get { return modifiedDate.ToString("dddd, dd MMMM yyyy"); }
             set { modifiedDate = DateTime.Now; }
         }
+
+        //TODO: Implement Add / Delete methods for Posts
+        //TODO: Implement HashCode and Equals methods
     }
 }
