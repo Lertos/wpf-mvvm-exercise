@@ -15,15 +15,9 @@
             this.downvotes = new Dictionary<int, bool>();
         }
 
-        public void EditContent(string content)
-        {
-            this.content = content;
-        }
+        public void EditContent(string content) => this.content = content;
 
-        public void AddUpvote(int userID)
-        {
-            this.upvotes[userID] = true;
-        }
+        public void AddUpvote(int userID) => this.upvotes[userID] = true;
 
         public void RemoveUpvote(int userID)
         {
@@ -33,10 +27,7 @@
             }
         }
 
-        public void AddDownvote(int userID)
-        {
-            this.downvotes[userID] = true;
-        }
+        public void AddDownvote(int userID) => this.downvotes[userID] = true;
 
         public void RemoveDownvote(int userID)
         {
@@ -53,8 +44,5 @@
 
             return 0;
         }
-
-
     }
-
 }
