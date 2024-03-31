@@ -26,39 +26,18 @@
             this.role = role;
         }
 
-        public void EditDisplayName(string displayName)
-        {
-            this.displayName = displayName;
-        }
+        public void EditDisplayName(string displayName) => this.displayName = displayName;
 
-        public void EditPassword(string password)
-        {
-            this.password = password;
-        }
+        public void EditPassword(string password) => this.password = password;
 
-        public void EditRole(Role role)
-        {
-            this.role = role;
-        }
+        public void EditRole(Role role) => this.role = role;
 
-        public void AddUpvote()
-        {
-            this.upvotes++;
-        }
+        public void AddUpvote() => this.upvotes++;
 
-        public void RemoveUpvote()
-        {
-            this.upvotes--;
-        }
+        public void RemoveUpvote() => this.upvotes--;
 
-        public void AddDownvote()
-        {
-            this.downvotes++;
-        }
+        public void AddDownvote() => this.downvotes++;
 
-        public void RemoveDownvote()
-        {
-            this .downvotes--;
-        }
+        public void RemoveDownvote() => this.downvotes--;
     }
 }
