@@ -9,10 +9,14 @@
 
     internal class User
     {
+        private const int MaxLoginNameLength = 32;
+        private const int MaxDisplayNameLength = 24;
+        private const int MaxPasswordLength = 64;
+
         public int id { get; }
-        public string loginName { get; }
-        public string password { get; private set; }
-        public string displayName { get; private set; }
+        private string loginName;
+        private string password;
+        private string displayName;
         public Role role { get; private set; }
         public int upvotes { get; private set; } = 0;
         public int downvotes { get; private set; } = 0;
@@ -26,9 +30,23 @@
             this.role = role;
         }
 
-        public void EditDisplayName(string displayName) => this.displayName = displayName;
+        public string LoginName
+        {
+            get { return loginName; }
+            set { loginName = value.Substring(0, MaxLoginNameLength); }
+        }
 
-        public void EditPassword(string password) => this.password = password;
+        public string Password
+        {
+            get { return password; }
+            set { password = value.Substring(0, MaxPasswordLength); }
+        }
+
+        public string DisplayName
+        {
+            get { return displayName; }
+            set { displayName = value.Substring(0, MaxDisplayNameLength); }
+        }
 
         public void EditRole(Role role) => this.role = role;
 
