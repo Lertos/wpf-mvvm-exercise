@@ -2,9 +2,9 @@
 {
     public enum Role
     {
-        DEVLEOPER,
-        MANAGER,
-        CEO
+        MEMBER,
+        MOD,
+        ADMIN
     }
 
     internal class User
