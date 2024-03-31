@@ -3,7 +3,7 @@
     internal class Thread
     {
         private const int MaxTitleLength = 60;
-        private const int MaxDescriptionLength = 500;
+        private const int MaxDescriptionLength = 200;
 
         private string title;
         private string description;
