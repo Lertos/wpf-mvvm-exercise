@@ -50,7 +50,18 @@
             }
             return false;
         }
-        
-        //TODO: Implement HashCode and Equals methods
+
+        public override bool Equals(object? obj)
+        {
+            if (obj == null) return false;
+
+            Category category = (Category)obj;
+            return this.GetHashCode() == category.GetHashCode();
+        }
+
+        public override int GetHashCode()
+        {
+            return title.GetHashCode() + description.GetHashCode();
+        }
     }
 }
