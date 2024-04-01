@@ -66,6 +66,17 @@
             return 0;
         }
 
-        //TODO: Implement HashCode and Equals methods
+        public override bool Equals(object? obj)
+        {
+            if (obj == null) return false;
+
+            Post other = (Post)obj;
+            return this.GetHashCode() == other.GetHashCode();
+        }
+
+        public override int GetHashCode()
+        {
+            return content.GetHashCode() + ownedBy.GetHashCode();
+        }
     }
 }
