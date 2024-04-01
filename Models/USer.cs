@@ -58,6 +58,17 @@
 
         public void RemoveDownvote() => this.downvotes--;
 
-        //TODO: Implement HashCode and Equals methods
+        public override bool Equals(object? obj)
+        {
+            if (obj == null) return false;
+
+            User user = (User)obj;
+            return this.GetHashCode() == user.GetHashCode();
+        }
+
+        public override int GetHashCode()
+        {
+            return id.GetHashCode() + loginName.GetHashCode() + password.GetHashCode() + displayName.GetHashCode() + role.GetHashCode();
+        }
     }
 }
