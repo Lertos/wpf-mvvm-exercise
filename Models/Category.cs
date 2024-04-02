@@ -46,7 +46,11 @@
         {
             foreach (var item in threads)
             {
-                if (item.Equals(thread)) return true;
+                if (item.Equals(thread))
+                {
+                    threads.Remove(thread);
+                    return true;
+                }
             }
             return false;
         }
