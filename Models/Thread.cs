@@ -1,4 +1,6 @@
-﻿namespace wpf_mvvm_exercise.Models
+﻿using System.Threading;
+
+namespace wpf_mvvm_exercise.Models
 {
     internal class Thread
     {
@@ -47,7 +49,36 @@
             set { modifiedDate = DateTime.Now; }
         }
 
-        //TODO: Implement Add / Delete methods for Posts
-        //TODO: Implement HashCode and Equals methods
+        public bool AddPost(Post post)
+        {
+            posts.Add(post);
+            return true;
+        }
+
+        public bool DeletePost(Post post)
+        {
+            foreach (var item in posts)
+            {
+                if (item.Equals(post))
+                {
+                    posts.Remove(post);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public override bool Equals(object? obj)
+        {
+            if (obj == null) return false;
+
+            Thread other = (Thread)obj;
+            return this.GetHashCode() == other.GetHashCode();
+        }
+
+        public override int GetHashCode()
+        {
+            return title.GetHashCode() + description.GetHashCode() + ownedBy.GetHashCode() + createDate.GetHashCode();
+        }
     }
 }
