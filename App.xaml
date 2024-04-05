@@ -4,6 +4,8 @@
              xmlns:local="clr-namespace:wpf_mvvm_exercise"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style TargetType="Button">
+            <Setter Property="Padding" Value="5 5 5 5" />
+        </Style>
     </Application.Resources>
 </Application>
