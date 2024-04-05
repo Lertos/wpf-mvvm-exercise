@@ -1,12 +1,7 @@
-﻿namespace wpf_mvvm_exercise.Models
-{
-    public enum Role
-    {
-        MEMBER,
-        MOD,
-        ADMIN
-    }
+﻿using wpf_mvvm_exercise.Enums;
 
+namespace wpf_mvvm_exercise.Models
+{
     internal class User
     {
         private const int MaxLoginNameLength = 32;
