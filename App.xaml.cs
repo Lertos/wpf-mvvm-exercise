@@ -1,6 +1,7 @@
 ﻿using System.Configuration;
 using System.Data;
 using System.Windows;
+using wpf_mvvm_exercise.Enums;
 using wpf_mvvm_exercise.Models;
 
 namespace wpf_mvvm_exercise
