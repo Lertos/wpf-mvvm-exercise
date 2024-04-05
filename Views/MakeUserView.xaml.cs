@@ -10,6 +10,8 @@ namespace wpf_mvvm_exercise.Views
         public MakeUserView()
         {
             InitializeComponent();
+
+
         }
     }
 }
