@@ -31,13 +31,18 @@
         <ListView Grid.Row="2" Grid.Column="1" Margin="0 20 0 0">
             <ListViewItem />
             <ListViewItem />
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
             <ListView.View>
                 <GridView>
                     
                     <GridViewColumn Header="ID">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="1" />
+                                <TextBlock Text="1" Padding="10 0" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -45,7 +50,7 @@
                     <GridViewColumn Header="Username">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="sithlord" />
+                                <TextBlock Text="sithlord" Padding="10 0" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -53,7 +58,7 @@
                     <GridViewColumn Header="Display Name">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="Darth Vader" />
+                                <TextBlock Text="Darth Vader" Padding="10 0" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -61,7 +66,7 @@
                     <GridViewColumn Header="Role">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="Member" />
+                                <TextBlock Text="Member" Padding="10 0" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -69,7 +74,7 @@
                     <GridViewColumn Header="Upvotes">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="7" />
+                                <TextBlock Text="7" Padding="10 0" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -77,7 +82,7 @@
                     <GridViewColumn Header="Downvotes">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="3" />
+                                <TextBlock Text="3" Padding="10 0" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
