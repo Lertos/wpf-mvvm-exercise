@@ -29,7 +29,7 @@
             Grid.Row="1"
             Width="300"
             Text="User Creation"
-            FontSize="24"
+            Style="{StaticResource Header}"
             />
 
         <Grid Grid.Row="2" Grid.Column="1">
