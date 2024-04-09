@@ -3,6 +3,7 @@ using System.Data;
 using System.Windows;
 using wpf_mvvm_exercise.Enums;
 using wpf_mvvm_exercise.Models;
+using wpf_mvvm_exercise.ViewModels;
 
 namespace wpf_mvvm_exercise
 {
@@ -14,6 +15,7 @@ namespace wpf_mvvm_exercise
 
         protected override void OnStartup(StartupEventArgs e)
         {
+            /*
             User user1 = new (1, "jackson", "123pass", "Jack Son", Role.MEMBER);
             User user2 = new (2, "anthoney", "pass123", "Ant Honey", Role.MOD);
 
@@ -32,6 +34,14 @@ namespace wpf_mvvm_exercise
             category.AddNewThread(thread);
 
             forum.AddCategory(category);
+            */
+
+            MainWindow = new MainWindow()
+            {
+                DataContext = new MainViewModel()
+            };
+
+            MainWindow.Show();
 
             base.OnStartup(e);
         }
