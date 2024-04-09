@@ -47,6 +47,7 @@
             <TextBox 
                 Grid.Row="1" 
                 Margin="0 5 0 0"
+                Text="{Binding LoginName, UpdateSourceTrigger=PropertyChanged}"
                 />
         </Grid>
 
@@ -65,6 +66,7 @@
             <TextBox 
                 Grid.Row="1" 
                 Margin="0 5 0 0"
+                Text="{Binding DisplayName, UpdateSourceTrigger=PropertyChanged}"
                 />
         </Grid>
 
@@ -83,6 +85,7 @@
             <TextBox 
                 Grid.Row="1" 
                 Margin="0 5 0 0"
+                Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}"
                 />
         </Grid>
 
@@ -101,6 +104,7 @@
             <TextBox 
                 Grid.Row="1" 
                 Margin="0 5 0 0"
+                Text="{Binding ConfirmPassword, UpdateSourceTrigger=PropertyChanged}"
                 />
         </Grid>
 
@@ -137,8 +141,8 @@
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 
-            <Button Grid.Column="1" Content="Submit" />
-            <Button Grid.Column="2" Content="Cancel" Margin="15 0 0 0" />
+            <Button Grid.Column="1" Command="{Binding SubmitCommand}" Content="Submit" />
+            <Button Grid.Column="2" Command="{Binding CancelCommand}" Content="Cancel" Margin="15 0 0 0" />
         </Grid>
     </Grid>
 </UserControl>
