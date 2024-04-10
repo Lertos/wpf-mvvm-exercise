@@ -24,8 +24,8 @@ namespace wpf_mvvm_exercise.ViewModels
             _users = new ObservableCollection<UserViewModel>();
 
             //TODO: Remove - simply for testing
-            _users.Add(new UserViewModel(new User(1, "jackson", "123pass", "Jack Son", Role.MEMBER)));
-            _users.Add(new UserViewModel(new User(2, "anthoney", "pass123", "Ant Honey", Role.MOD)));
+            _users.Add(new UserViewModel(new User("jackson", "123pass", "Jack Son", Role.MEMBER)));
+            _users.Add(new UserViewModel(new User("anthoney", "pass123", "Ant Honey", Role.MOD)));
         }
     }
 }

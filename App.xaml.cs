@@ -12,9 +12,16 @@ namespace wpf_mvvm_exercise
     /// </summary>
     public partial class App : Application
     {
+        private readonly Forum forum;
+
+        public App()
+        {
+            forum = new("WPF Forums");
+        }
 
         protected override void OnStartup(StartupEventArgs e)
         {
+
             /*
             User user1 = new (1, "jackson", "123pass", "Jack Son", Role.MEMBER);
             User user2 = new (2, "anthoney", "pass123", "Ant Honey", Role.MOD);
@@ -38,7 +45,7 @@ namespace wpf_mvvm_exercise
 
             MainWindow = new MainWindow()
             {
-                DataContext = new MainViewModel()
+                DataContext = new MainViewModel(forum)
             };
 
             MainWindow.Show();

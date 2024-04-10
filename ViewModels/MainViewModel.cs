@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using wpf_mvvm_exercise.Models;
 
 namespace wpf_mvvm_exercise.ViewModels
 {
@@ -10,9 +11,9 @@ namespace wpf_mvvm_exercise.ViewModels
     {
         public ViewModelBase CurrentViewModel { get; }
 
-        public MainViewModel()
+        public MainViewModel(Forum forum)
         {
-            CurrentViewModel = new MakeUserViewModel();
+            CurrentViewModel = new MakeUserViewModel(forum);
         }
     }
 }

@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using wpf_mvvm_exercise.Commands;
 using wpf_mvvm_exercise.Enums;
+using wpf_mvvm_exercise.Models;
 
 namespace wpf_mvvm_exercise.ViewModels
 {
@@ -70,5 +72,10 @@ namespace wpf_mvvm_exercise.ViewModels
 
         public ICommand SubmitCommand { get; }
         public ICommand CancelCommand { get; }
+
+        public MakeUserViewModel(Forum forum)
+        {
+            SubmitCommand = new CreateUserCommand(this, forum);
+        }
     }
 }
