@@ -1,6 +1,6 @@
 ﻿namespace wpf_mvvm_exercise.Models
 {
-    internal class Post
+    public class Post
     {
         private const int MaxContentLength = 500;
 

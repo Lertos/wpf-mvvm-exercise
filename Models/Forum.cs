@@ -2,7 +2,7 @@
 
 namespace wpf_mvvm_exercise.Models
 {
-    internal class Forum
+    public class Forum
     {
         private const int MaxTitleLength = 60;
 

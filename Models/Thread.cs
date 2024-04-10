@@ -2,7 +2,7 @@
 
 namespace wpf_mvvm_exercise.Models
 {
-    internal class Thread
+    public class Thread
     {
         private const int MaxTitleLength = 60;
         private const int MaxDescriptionLength = 200;

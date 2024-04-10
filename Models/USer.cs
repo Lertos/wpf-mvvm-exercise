@@ -2,7 +2,7 @@
 
 namespace wpf_mvvm_exercise.Models
 {
-    internal class User
+    public class User
     {
         private const int MaxLoginNameLength = 32;
         private const int MaxDisplayNameLength = 24;

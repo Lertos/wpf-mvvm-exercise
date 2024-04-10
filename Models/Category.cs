@@ -1,6 +1,6 @@
 ﻿namespace wpf_mvvm_exercise.Models
 {
-    internal class Category
+    public class Category
     {
         private const int MaxTitleLength = 30;
         private const int MaxDescriptionLength = 100;
