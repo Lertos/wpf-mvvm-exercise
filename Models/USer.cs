@@ -4,6 +4,7 @@ namespace wpf_mvvm_exercise.Models
 {
     public class User
     {
+        static int nextUserId = 0;
         private const int MaxLoginNameLength = 32;
         private const int MaxDisplayNameLength = 24;
         private const int MaxPasswordLength = 64;
@@ -16,13 +17,15 @@ namespace wpf_mvvm_exercise.Models
         public int upvotes { get; private set; } = 0;
         public int downvotes { get; private set; } = 0;
 
-        public User (int id, string loginName, string password, string displayName, Role role)
+        public User (string loginName, string password, string displayName, Role role)
         {
-            this.id = id;
+            this.id = nextUserId;
             this.loginName = loginName;
             this.password = password;
             this.displayName = displayName;
             this.role = role;
+
+            nextUserId++;
         }
 
         public string LoginName
