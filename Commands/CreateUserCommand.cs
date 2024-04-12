@@ -38,6 +38,30 @@ namespace wpf_mvvm_exercise.Commands
         //The logic that occurs when the button attached to this command is pressed
         public override void Execute(object? parameter)
         {
+            if (makeUserViewModel.LoginName.Length <= 4)
+            {
+                MessageBox.Show("The Login Name must be larger than 4 characters.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (makeUserViewModel.DisplayName.Length <= 4)
+            {
+                MessageBox.Show("The Display Name must be larger than 4 characters.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (makeUserViewModel.Password.Length <= 8)
+            {
+                MessageBox.Show("The Login Name must be larger than 8 characters.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (makeUserViewModel.Password.Equals(makeUserViewModel.ConfirmPassword))
+            {
+                MessageBox.Show("The two passwords do not match.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             User user = new User(
                 makeUserViewModel.LoginName,
                 makeUserViewModel.Password,
