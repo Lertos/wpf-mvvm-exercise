@@ -76,6 +76,7 @@ namespace wpf_mvvm_exercise.ViewModels
         public MakeUserViewModel(Forum forum)
         {
             SubmitCommand = new CreateUserCommand(this, forum);
+            CancelCommand = new CancelCreateUserCommand();
         }
     }
 }

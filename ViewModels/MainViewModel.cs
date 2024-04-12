@@ -13,7 +13,7 @@ namespace wpf_mvvm_exercise.ViewModels
 
         public MainViewModel(Forum forum)
         {
-            CurrentViewModel = new MakeUserViewModel(forum);
+            CurrentViewModel = new UserListViewModel();
         }
     }
 }

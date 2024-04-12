@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using wpf_mvvm_exercise.Commands;
 using wpf_mvvm_exercise.Enums;
 using wpf_mvvm_exercise.Models;
 
@@ -21,6 +22,8 @@ namespace wpf_mvvm_exercise.ViewModels
 
         public UserListViewModel()
         {
+            CreateUserCommand = new NavigationCommand();
+
             _users = new ObservableCollection<UserViewModel>();
 
             //TODO: Remove - simply for testing
