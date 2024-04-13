@@ -8,6 +8,8 @@ using System.Windows.Input;
 using wpf_mvvm_exercise.Commands;
 using wpf_mvvm_exercise.Enums;
 using wpf_mvvm_exercise.Models;
+using wpf_mvvm_exercise.Services;
+using wpf_mvvm_exercise.Stores;
 
 namespace wpf_mvvm_exercise.ViewModels
 {
@@ -20,9 +22,9 @@ namespace wpf_mvvm_exercise.ViewModels
 
         public ICommand CreateUserCommand { get; }
 
-        public UserListViewModel()
+        public UserListViewModel(NavigationService navigationService)
         {
-            CreateUserCommand = new NavigationCommand();
+            CreateUserCommand = new NavigationCommand(navigationService);
 
             _users = new ObservableCollection<UserViewModel>();
 

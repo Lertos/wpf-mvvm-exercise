@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using wpf_mvvm_exercise.Models;
+using wpf_mvvm_exercise.Services;
 using wpf_mvvm_exercise.ViewModels;
 
 namespace wpf_mvvm_exercise.Commands
@@ -14,13 +15,14 @@ namespace wpf_mvvm_exercise.Commands
     public class CreateUserCommand : CommandBase
     {
         private readonly Forum forum;
+        private readonly NavigationService userListNavigationService;
         private readonly MakeUserViewModel makeUserViewModel;
 
-        public CreateUserCommand(MakeUserViewModel makeUserViewModel, Forum forum)
+        public CreateUserCommand(MakeUserViewModel makeUserViewModel, Forum forum, NavigationService userListNavigationService)
         {
             this.makeUserViewModel = makeUserViewModel;
             this.forum = forum;
-
+            this.userListNavigationService = userListNavigationService;
             makeUserViewModel.PropertyChanged += OnViewModelPropertyChanged;
         }
 
@@ -52,11 +54,11 @@ namespace wpf_mvvm_exercise.Commands
 
             if (makeUserViewModel.Password.Length <= 8)
             {
-                MessageBox.Show("The Login Name must be larger than 8 characters.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("The Password must be larger than 8 characters.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
-            if (makeUserViewModel.Password.Equals(makeUserViewModel.ConfirmPassword))
+            if (!makeUserViewModel.Password.Equals(makeUserViewModel.ConfirmPassword))
             {
                 MessageBox.Show("The two passwords do not match.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -78,6 +80,8 @@ namespace wpf_mvvm_exercise.Commands
             else
             {
                 MessageBox.Show("User successfully added!", "Success", MessageBoxButton.OK);
+
+                this.userListNavigationService.Navigate();
             }
         }
 

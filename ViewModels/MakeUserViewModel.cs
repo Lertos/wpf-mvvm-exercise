@@ -7,6 +7,8 @@ using System.Windows.Input;
 using wpf_mvvm_exercise.Commands;
 using wpf_mvvm_exercise.Enums;
 using wpf_mvvm_exercise.Models;
+using wpf_mvvm_exercise.Services;
+using wpf_mvvm_exercise.Stores;
 
 namespace wpf_mvvm_exercise.ViewModels
 {
@@ -73,10 +75,10 @@ namespace wpf_mvvm_exercise.ViewModels
         public ICommand SubmitCommand { get; }
         public ICommand CancelCommand { get; }
 
-        public MakeUserViewModel(Forum forum)
+        public MakeUserViewModel(Forum forum, NavigationService userListNavigationService)
         {
-            SubmitCommand = new CreateUserCommand(this, forum);
-            CancelCommand = new CancelCreateUserCommand();
+            SubmitCommand = new CreateUserCommand(this, forum, userListNavigationService);
+            CancelCommand = new NavigationCommand(userListNavigationService);
         }
     }
 }

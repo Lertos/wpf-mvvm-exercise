@@ -3,6 +3,8 @@ using System.Data;
 using System.Windows;
 using wpf_mvvm_exercise.Enums;
 using wpf_mvvm_exercise.Models;
+using wpf_mvvm_exercise.Services;
+using wpf_mvvm_exercise.Stores;
 using wpf_mvvm_exercise.ViewModels;
 
 namespace wpf_mvvm_exercise
@@ -12,10 +14,12 @@ namespace wpf_mvvm_exercise
     /// </summary>
     public partial class App : Application
     {
+        private readonly NavigationStore navigationStore;
         private readonly Forum forum;
 
         public App()
         {
+            navigationStore = new NavigationStore();
             forum = new("WPF Forums");
         }
 
@@ -43,14 +47,26 @@ namespace wpf_mvvm_exercise
             forum.AddCategory(category);
             */
 
+            navigationStore.CurrentViewModel = CreateUserListViewModel();
+
             MainWindow = new MainWindow()
             {
-                DataContext = new MainViewModel(forum)
+                DataContext = new MainViewModel(navigationStore, forum)
             };
 
             MainWindow.Show();
 
             base.OnStartup(e);
+        }
+
+        private MakeUserViewModel CreateMakeUserViewModel()
+        {
+            return new MakeUserViewModel(forum, new NavigationService(navigationStore, CreateUserListViewModel));
+        }
+
+        private UserListViewModel CreateUserListViewModel()
+        {
+            return new UserListViewModel(new NavigationService(navigationStore, CreateMakeUserViewModel));
         }
     }
 
