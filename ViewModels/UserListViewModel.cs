@@ -16,21 +16,32 @@ namespace wpf_mvvm_exercise.ViewModels
     public class UserListViewModel : ViewModelBase
     {
 
-        private readonly ObservableCollection<UserViewModel> _users;
+        private readonly ObservableCollection<UserViewModel> users;
+        private readonly Forum forum;
 
-        public IEnumerable<UserViewModel> Users => _users;
+        public IEnumerable<UserViewModel> Users => users;
 
         public ICommand CreateUserCommand { get; }
 
-        public UserListViewModel(NavigationService navigationService)
+        public UserListViewModel(Forum forum, NavigationService navigationService)
         {
             CreateUserCommand = new NavigationCommand(navigationService);
 
-            _users = new ObservableCollection<UserViewModel>();
+            this.forum = forum;
+            this.users = new ObservableCollection<UserViewModel>();
 
-            //TODO: Remove - simply for testing
-            _users.Add(new UserViewModel(new User("jackson", "123pass", "Jack Son", Role.MEMBER)));
-            _users.Add(new UserViewModel(new User("anthoney", "pass123", "Ant Honey", Role.MOD)));
+            UpdateUsers();
+        }
+
+        private void UpdateUsers()
+        {
+            users.Clear();
+
+            foreach (var item in forum.users)
+            {
+                UserViewModel userViewModel = new UserViewModel(item);
+                users.Add(userViewModel);
+            }
         }
     }
 }

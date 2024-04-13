@@ -66,7 +66,7 @@ namespace wpf_mvvm_exercise
 
         private UserListViewModel CreateUserListViewModel()
         {
-            return new UserListViewModel(new NavigationService(navigationStore, CreateMakeUserViewModel));
+            return new UserListViewModel(forum, new NavigationService(navigationStore, CreateMakeUserViewModel));
         }
     }
 
